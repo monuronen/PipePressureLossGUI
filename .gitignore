@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+.venv/
+venv/
+
+# PyInstaller artifacts (anywhere)
+build/
+dist/
+*.spec
+
+# Nested local build workspace artifacts
+pipe-pressure-loss-gui/build/
+pipe-pressure-loss-gui/dist/
+pipe-pressure-loss-gui/*.spec
+
+.vscode/
+.idea/
+
+.DS_Store
+Thumbs.db
+
+pipe-pressure-loss-gui/
+old_codes/
