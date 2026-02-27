@@ -693,15 +693,15 @@ class MainWindow(QMainWindow):
 
         self.s_dp = ValueSlider(
             label="Pressure loss uncertainty, ± (%)",
-            min_val=0, max_val=50, step=1, initial=10, suffix="%"
+            min_val=0, max_val=50, step=0.1, initial=0.0, suffix="%"
         )
         self.s_V = ValueSlider(
             label="Volume uncertainty, ± (L) [ABSOLUTE]",
-            min_val=0, max_val=5, step=0.1, initial=0.5, suffix="L"
+            min_val=0, max_val=1, step=0.01, initial=0.0, suffix="L"
         )
         self.s_dt = ValueSlider(
             label="Time uncertainty, ± (s) [ABSOLUTE]",
-            min_val=0, max_val=20, step=0.1, initial=1.0, suffix="s"
+            min_val=0, max_val=20, step=0.1, initial=0.0, suffix="s"
         )
         control_layout.addWidget(self.s_dp)
         control_layout.addWidget(self.s_V)
@@ -1015,7 +1015,7 @@ class MainWindow(QMainWindow):
 
         if show_means:
             ax.plot(x, dfp["f_mean"].to_numpy(), marker="o", linewidth=1, label="Experim. f. factor (mean)")
-            ax.plot(x, dfp["f_th_mean"].to_numpy(), marker="o", linewidth=1, label="Experim. f. factor (mean)")
+            ax.plot(x, dfp["f_th_mean"].to_numpy(), marker="o", linewidth=1, label="Theoret. f. factor (mean)")
 
         # Highlight rows where theoretical interval is fully inside experimental
         inside_mask = dfp["theoretical_inside_experimental"].to_numpy().astype(bool)
